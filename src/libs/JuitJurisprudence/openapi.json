@@ -1,0 +1,1393 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "API de Busca",
+    "description": "Essa API realiza buscas na base de dados da JUIT.\n",
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "https://api.juit.io/v1/data-products/search"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Jurisprudence",
+      "x-displayName": "Jurisprudência",
+      "description": "Endpoints relacionados a jurisprudências"
+    }
+  ],
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "paths": {
+    "/jurisprudence": {
+      "get": {
+        "tags": [
+          "Jurisprudence"
+        ],
+        "summary": "Buscar jurisprudências",
+        "description": "Esse endpoint realiza a busca na base da JUIT e retorna 10 jurisprudências.",
+        "operationId": "getJurisprudences",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Query"
+          },
+          {
+            "$ref": "#/components/parameters/Owner"
+          },
+          {
+            "$ref": "#/components/parameters/SearchID"
+          },
+          {
+            "$ref": "#/components/parameters/SearchOn"
+          },
+          {
+            "$ref": "#/components/parameters/DisableSynonymOn"
+          },
+          {
+            "$ref": "#/components/parameters/SortByField"
+          },
+          {
+            "$ref": "#/components/parameters/SortByDirection"
+          },
+          {
+            "$ref": "#/components/parameters/NextPageToken"
+          },
+          {
+            "$ref": "#/components/parameters/FilterOrderDate"
+          },
+          {
+            "$ref": "#/components/parameters/FilterJudgmentDate"
+          },
+          {
+            "$ref": "#/components/parameters/FilterPublicationDate"
+          },
+          {
+            "$ref": "#/components/parameters/FilterReleaseDate"
+          },
+          {
+            "$ref": "#/components/parameters/FilterSignatureDate"
+          },
+          {
+            "$ref": "#/components/parameters/FilterCourtCode"
+          },
+          {
+            "$ref": "#/components/parameters/FilterDegree"
+          },
+          {
+            "$ref": "#/components/parameters/FilterProcessOriginState"
+          },
+          {
+            "$ref": "#/components/parameters/FilterDistrict"
+          },
+          {
+            "$ref": "#/components/parameters/FilterDocumentMatterList"
+          },
+          {
+            "$ref": "#/components/parameters/FilterProcessClassNameList"
+          },
+          {
+            "$ref": "#/components/parameters/FilterJudgmentBody"
+          },
+          {
+            "$ref": "#/components/parameters/FilterTrier"
+          },
+          {
+            "$ref": "#/components/parameters/FilterDocumentType"
+          },
+          {
+            "$ref": "#/components/parameters/FilterJusticeType"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved jurisprudences.",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/headers/Content-Language"
+              },
+              "Content-Length": {
+                "$ref": "#/components/headers/Content-Length"
+              },
+              "Content-Type": {
+                "$ref": "#/components/headers/Content-Type"
+              },
+              "Date": {
+                "$ref": "#/components/headers/Date"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JurisprudenceSearchResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "next_page_token": "WzEyMzQsMTIzNF0=",
+                      "total": 500,
+                      "size": 10,
+                      "search_info": {
+                        "search_id": "18fa6ff2-7ce0-4000-8f1d-7444bafc2c00",
+                        "elapsed_time_in_ms": 872
+                      },
+                      "items": [
+                        {
+                          "id": "ffff45f6c298edf77f960b20c3468926",
+                          "juit_id": "ffff45f6c298edf77f960b20c3468926",
+                          "cnj_unique_number": "2037843-28.2024.8.26.0000",
+                          "court_code": "TJSP",
+                          "degree": "2ª Instância",
+                          "district": "Avaré",
+                          "document_matter_list": [
+                            "cartão de crédito"
+                          ],
+                          "document_type": "Acórdão",
+                          "full_text": "Texto da íntegra ...",
+                          "headnote": "TUTELA DE URGÊNCIA - Ação de obrigação de fazer c.c. repetição de indébito e indenização por dano moral – Contratação de reserva de margem consignável em cartão de crédito alegadamente mediante vício de consentimento - Indeferimento da tutela de urgência que visava suspender o desconto das parcelas do empréstimo controvertido - Decisão mantida - Agravo improvido.",
+                          "judgment_body": "20ª Câmara de Direito Privado",
+                          "process_class_name_list": [
+                            "Agravo de instrumento"
+                          ],
+                          "process_origin_state": "SP",
+                          "judgment_date": "2024-05-07T00:00:00Z",
+                          "publication_date": "2024-05-07T00:00:00Z",
+                          "release_date": "2024-05-07T00:00:00Z",
+                          "signature_date": "2024-05-07T00:00:00Z",
+                          "order_date": "2024-05-07T00:00:00Z",
+                          "title": "TJSP / Acórdão / 2037843-28.2024.8.26.0000",
+                          "trier": "Correia Lima",
+                          "justice_type": "Juízo Comum",
+                          "rimor_url": "https://rimor2.juit.io/busca_jurisprudencia/ffff45f6c298edf77f960b20c3468926",
+                          "artifacts": [
+                            {
+                              "checksum": "d41d8cd98f00b204e9800998ecf8427e",
+                              "collected_date": "2024-10-01T20:23:17Z",
+                              "document_type": "Acórdão",
+                              "is_original": true,
+                              "mime_type": "application/pdf",
+                              "filename": "00005325220168130332_20241001.pdf"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableContent"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/jurisprudence/{juit_id}/artifact": {
+      "get": {
+        "tags": [
+          "Jurisprudence"
+        ],
+        "summary": "Baixar artefato de jurisprudência",
+        "description": "Download de um artefato específico associado a uma jurisprudência.",
+        "operationId": "downloadJurisprudenceArtifact",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/JurisprudenceJuitID"
+          },
+          {
+            "$ref": "#/components/parameters/Owner"
+          },
+          {
+            "$ref": "#/components/parameters/ArtifactFilename"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Artefato baixado com sucesso.",
+            "headers": {
+              "checksum": {
+                "description": "Checksum do arquivo para verificação de integridade.",
+                "schema": {
+                  "type": "string",
+                  "examples": [
+                    "d41d8cd98f00b204e9800998ecf8427e"
+                  ]
+                }
+              },
+              "Content-Language": {
+                "$ref": "#/components/headers/Content-Language"
+              },
+              "Content-Length": {
+                "$ref": "#/components/headers/Content-Length"
+              },
+              "Content-Type": {
+                "description": "Tipo MIME do arquivo.",
+                "schema": {
+                  "type": "string",
+                  "examples": [
+                    "application/pdf"
+                  ]
+                }
+              },
+              "Content-Disposition": {
+                "description": "Indica que o conteúdo deve ser baixado como arquivo.",
+                "schema": {
+                  "type": "string",
+                  "examples": [
+                    "attachment; filename=\"00005325220168130332_20241001.pdf\""
+                  ]
+                }
+              },
+              "Date": {
+                "$ref": "#/components/headers/Date"
+              }
+            },
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary",
+                  "description": "Arquivo PDF."
+                }
+              },
+              "application/rtf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary",
+                  "description": "Arquivo RTF."
+                }
+              },
+              "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary",
+                  "description": "Arquivo DocX."
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary",
+                  "description": "Arquivo binário."
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "parameters": {
+      "Accept": {
+        "in": "header",
+        "name": "Accept",
+        "required": true,
+        "description": "This header specifies the types of content that the client accepts in the response.",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "application/json"
+          ],
+          "default": "application/json"
+        }
+      },
+      "AcceptLanguage": {
+        "in": "header",
+        "name": "Accept-Language",
+        "required": true,
+        "description": "It indicates the client's language preferences for the response.",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "pt-br"
+          ],
+          "default": "pt-br"
+        }
+      },
+      "AcceptEncoding": {
+        "in": "header",
+        "name": "Accept-Encoding",
+        "required": false,
+        "description": "It indicates to the server that the client is capable of decompressing (decoding) responses that are encoded before being sent.",
+        "schema": {
+          "type": "string",
+          "default": "gzip, deflate"
+        }
+      },
+      "ContentType": {
+        "in": "header",
+        "name": "Content-Type",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "application/json"
+          ]
+        }
+      },
+      "UserAgent": {
+        "in": "header",
+        "name": "User-Agent",
+        "required": false,
+        "description": "Client User-Agent",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Owner": {
+        "in": "query",
+        "name": "owner",
+        "required": true,
+        "description": "Email do usuário que está solicitando a consulta.",
+        "schema": {
+          "type": "string",
+          "maxLength": 512
+        }
+      },
+      "Query": {
+        "in": "query",
+        "name": "query",
+        "required": true,
+        "description": "Termo da busca. Suporta operadores `E`, `OU`, `MASNAO`, `PARÊNTESES` e busca por termo exato com aspas.",
+        "schema": {
+          "type": "string",
+          "maxLength": 512
+        }
+      },
+      "SearchID": {
+        "in": "query",
+        "name": "search_id",
+        "description": "ID da busca retornado pela API. Não informar na primeira requisição.",
+        "schema": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        }
+      },
+      "SearchOn": {
+        "in": "query",
+        "name": "search_on",
+        "required": true,
+        "description": "Campos onde a busca será realizada: `title`, `headnote`, `full_text`.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "title",
+              "headnote",
+              "full_text"
+            ]
+          }
+        }
+      },
+      "DisableSynonymOn": {
+        "in": "query",
+        "name": "disable_synonym_on",
+        "description": "Campos onde o sinônimo será desabilitado. Por padrão, sinônimos estão habilitados.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "title",
+              "headnote",
+              "full_text"
+            ]
+          }
+        }
+      },
+      "NextPageToken": {
+        "in": "query",
+        "name": "next_page_token",
+        "description": "Token para paginação contínua. Obtido via `next_page_token` na resposta anterior.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "SortByField": {
+        "in": "query",
+        "name": "sort_by_field",
+        "description": "Campo de ordenação: `score`, `order_date`, `juit_id`. Usar em conjunto com `sort_by_direction`.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "score",
+              "order_date",
+              "juit_id"
+            ]
+          },
+          "default": [
+            "score",
+            "juit_id"
+          ]
+        }
+      },
+      "SortByDirection": {
+        "in": "query",
+        "name": "sort_by_direction",
+        "description": "Direção de ordenação: `asc` ou `desc`. Usar em conjunto com `sort_by_field`.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "default": [
+            "desc",
+            "desc"
+          ]
+        }
+      },
+      "FilterOrderDate": {
+        "in": "query",
+        "name": "order_date",
+        "description": "Data consolidada no formato `YYYYMMDD`, com operadores opcionais: `$gt`, `$gte`, `$lt`, `$lte`.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/DateFilter"
+          }
+        }
+      },
+      "FilterJudgmentDate": {
+        "in": "query",
+        "name": "judgment_date",
+        "description": "Data de julgamento no formato `YYYYMMDD`, com operadores opcionais: `$gt`, `$gte`, `$lt`, `$lte`.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/DateFilter"
+          }
+        }
+      },
+      "FilterPublicationDate": {
+        "in": "query",
+        "name": "publication_date",
+        "description": "Data de publicação no formato `YYYYMMDD`, com operadores opcionais: `$gt`, `$gte`, `$lt`, `$lte`.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/DateFilter"
+          }
+        }
+      },
+      "FilterReleaseDate": {
+        "in": "query",
+        "name": "release_date",
+        "description": "Data de disponibilização no formato `YYYYMMDD`, com operadores opcionais: `$gt`, `$gte`, `$lt`, `$lte`.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/DateFilter"
+          }
+        }
+      },
+      "FilterSignatureDate": {
+        "in": "query",
+        "name": "signature_date",
+        "description": "Data de assinatura no formato `YYYYMMDD`, com operadores opcionais: `$gt`, `$gte`, `$lt`, `$lte`.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/DateFilter"
+          }
+        }
+      },
+      "FilterCourtCode": {
+        "in": "query",
+        "name": "court_code",
+        "description": "Código do tribunal no qual o processo foi julgado.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "FilterDegree": {
+        "in": "query",
+        "name": "degree",
+        "description": "Instância do julgamento: `1ª Instância`, `2ª Instância`, `Tribunal Superior`, `Administrativo`.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "1ª Instância",
+              "2ª Instância",
+              "Tribunal Superior",
+              "Administrativo"
+            ]
+          }
+        }
+      },
+      "FilterProcessOriginState": {
+        "in": "query",
+        "name": "process_origin_state",
+        "description": "Estado de origem do julgado (sigla UF).",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "AC",
+              "AL",
+              "AP",
+              "AM",
+              "BA",
+              "CE",
+              "ES",
+              "GO",
+              "MA",
+              "MT",
+              "MS",
+              "MG",
+              "PA",
+              "PB",
+              "PR",
+              "PE",
+              "PI",
+              "RJ",
+              "RN",
+              "RS",
+              "RO",
+              "RR",
+              "SC",
+              "SP",
+              "SE",
+              "TO",
+              "DF"
+            ]
+          }
+        }
+      },
+      "FilterDistrict": {
+        "in": "query",
+        "name": "district",
+        "description": "Comarca de origem do recurso.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "FilterDocumentMatterList": {
+        "in": "query",
+        "name": "document_matter_list",
+        "description": "Assuntos do CNJ (TPU).",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "FilterProcessClassNameList": {
+        "in": "query",
+        "name": "process_class_name_list",
+        "description": "Classes da ação definidas pelo tribunal ou recurso.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "FilterJudgmentBody": {
+        "in": "query",
+        "name": "judgment_body",
+        "description": "Órgão responsável pelo julgamento.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "FilterTrier": {
+        "in": "query",
+        "name": "trier",
+        "description": "Magistrado responsável pelo caso (Juiz, Desembargador ou Ministro).",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "FilterDocumentType": {
+        "in": "query",
+        "name": "document_type",
+        "description": "Tipo de documento do julgado: `Acórdão`, `Decisão Monocrática`, `Sentença`, `Decisão`, `Despacho`, `Admissibilidade`, `Dúvida de Competência`, `Nâo identificado`.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Acórdão",
+              "Decisão Monocrática",
+              "Nâo identificado",
+              "Admissibilidade",
+              "Sentença",
+              "Decisão",
+              "Despacho",
+              "Dúvida de Competência"
+            ]
+          }
+        }
+      },
+      "FilterJusticeType": {
+        "in": "query",
+        "name": "justice_type",
+        "description": "Tipo de justiça: `Juízo Comum` ou `Juizado Especial`.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Juízo Comum",
+              "Juizado Especial"
+            ]
+          }
+        }
+      },
+      "JurisprudenceJuitID": {
+        "in": "path",
+        "name": "juit_id",
+        "required": true,
+        "description": "ID JUIT da jurisprudência. Obtido via `juit_id` na busca.",
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "ffff45f6c298edf77f960b20c3468926"
+          ]
+        }
+      },
+      "ArtifactFilename": {
+        "in": "query",
+        "name": "filename",
+        "required": true,
+        "description": "Nome do arquivo do artefato. Obtido via `artifacts.filename` na busca.",
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "00005325220168130332_20241001.pdf"
+          ]
+        }
+      }
+    },
+    "headers": {
+      "Content-Language": {
+        "description": "Language returned by the request",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Content-Length": {
+        "description": "Response body size in bytes",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "Content-Type": {
+        "description": "Response content type",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Date": {
+        "description": "UTC response date/time",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Bad Request response",
+        "headers": {
+          "Content-Language": {
+            "$ref": "#/components/headers/Content-Language"
+          },
+          "Content-Length": {
+            "$ref": "#/components/headers/Content-Length"
+          },
+          "Content-Type": {
+            "$ref": "#/components/headers/Content-Type"
+          },
+          "Date": {
+            "$ref": "#/components/headers/Date"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "examples": {
+              "default": {
+                "value": {
+                  "status": 400,
+                  "error": "Bad request",
+                  "message": "\"guid\" path param is invalid",
+                  "details": {
+                    "trace_id": "D-E-11341740730835009643",
+                    "short_message": "Path param \"guid\" inválido.",
+                    "long_message": "Path param \"guid\" inválido."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "Forbidden response",
+        "headers": {
+          "Content-Language": {
+            "$ref": "#/components/headers/Content-Language"
+          },
+          "Content-Length": {
+            "$ref": "#/components/headers/Content-Length"
+          },
+          "Content-Type": {
+            "$ref": "#/components/headers/Content-Type"
+          },
+          "Date": {
+            "$ref": "#/components/headers/Date"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "examples": {
+              "default": {
+                "value": {
+                  "status": 403,
+                  "error": "Forbidden",
+                  "message": "user can not perform this operation.",
+                  "details": {
+                    "trace_id": "D-E-11341740730835009851",
+                    "short_message": "Usuário não tem permissão de executar essa ação.",
+                    "long_message": "Usuário não tem permissão de executar essa ação."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Not found response",
+        "headers": {
+          "Content-Language": {
+            "$ref": "#/components/headers/Content-Language"
+          },
+          "Content-Length": {
+            "$ref": "#/components/headers/Content-Length"
+          },
+          "Content-Type": {
+            "$ref": "#/components/headers/Content-Type"
+          },
+          "Date": {
+            "$ref": "#/components/headers/Date"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "examples": {
+              "default": {
+                "value": {
+                  "status": 404,
+                  "error": "Not Found",
+                  "message": "resource not found",
+                  "details": {
+                    "trace_id": "D-E-11341740730835009853",
+                    "short_message": "Rescurso não existe.",
+                    "long_message": "Rescurso não existe."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "UnprocessableContent": {
+        "description": "Unprocessably content error response",
+        "headers": {
+          "Content-Language": {
+            "$ref": "#/components/headers/Content-Language"
+          },
+          "Content-Length": {
+            "$ref": "#/components/headers/Content-Length"
+          },
+          "Content-Type": {
+            "$ref": "#/components/headers/Content-Type"
+          },
+          "Date": {
+            "$ref": "#/components/headers/Date"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "examples": {
+              "default": {
+                "value": {
+                  "status": 422,
+                  "error": "Unprocessable content error",
+                  "message": "server can't proccess this request",
+                  "details": {
+                    "trace_id": "D-E-11341740730835009855",
+                    "short_message": "Erro no servidor.",
+                    "long_message": "Erro no servidor. Não foi possível processar a solicitação."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Server internal error response",
+        "headers": {
+          "Content-Language": {
+            "$ref": "#/components/headers/Content-Language"
+          },
+          "Content-Length": {
+            "$ref": "#/components/headers/Content-Length"
+          },
+          "Content-Type": {
+            "$ref": "#/components/headers/Content-Type"
+          },
+          "Date": {
+            "$ref": "#/components/headers/Date"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "examples": {
+              "default": {
+                "value": {
+                  "status": 500,
+                  "error": "Server internal error",
+                  "message": "database error",
+                  "details": {
+                    "trace_id": "D-E-11341740730835009854",
+                    "short_message": "Erro no servidor.",
+                    "long_message": "Erro no servidor. Entre em contato com o administrador do sistema."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "DateFilter": {
+        "type": "string",
+        "description": "Data no formato `YYYYMMDD`, opcionalmente prefixada por `$gt`, `$gte`, `$lt` ou `$lte`.",
+        "pattern": "^(\\$(gte?|lte?))?\\d{4}\\d{2}\\d{2}$",
+        "examples": [
+          "$gte20240101"
+        ]
+      },
+      "JurisprudenceSearchResponse": {
+        "type": "object",
+        "properties": {
+          "next_page_token": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "O próximo token que deverá ser informado para realizar a paginação para a próxima página",
+            "examples": [
+              "WzEyMzQsMTIzNF0="
+            ]
+          },
+          "total": {
+            "type": "integer",
+            "description": "Total de documentos retornados pela consulta.",
+            "examples": [
+              500
+            ]
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 50,
+            "description": "Quantidade de documentos solicitados nessa requisição.",
+            "examples": [
+              10
+            ]
+          },
+          "search_info": {
+            "$ref": "#/components/schemas/search_info"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JurisprudenceRecord"
+            }
+          }
+        }
+      },
+      "pagination": {
+        "type": "object",
+        "description": "Informações da paginação.",
+        "properties": {
+          "next_page_token": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "O próximo token que deverá ser informado para relizar a paginação para a próxima página",
+            "examples": [
+              "WzEyMzQsMTIzNF0="
+            ]
+          },
+          "total": {
+            "type": "integer",
+            "description": "Total de documentos retornados pela consulta.",
+            "examples": [
+              500
+            ]
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 50,
+            "description": "Quantidade de documentos solicitados nessa requisição.",
+            "examples": [
+              10
+            ]
+          }
+        }
+      },
+      "search_info": {
+        "type": "object",
+        "description": "Informações da busca.",
+        "properties": {
+          "search_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "O ID da busca. Retorando pela própria API e não precisa ser fornecido na primeira solicitação.",
+            "examples": [
+              "18fa6ff2-7ce0-4000-8f1d-7444bafc2c00"
+            ]
+          },
+          "elapsed_time_in_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Tempo da execução da requisição em millisegundos.",
+            "examples": [
+              872
+            ]
+          }
+        }
+      },
+      "JurisprudenceRecord": {
+        "type": "object",
+        "description": "Jurisprudência.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "ID da decisão.",
+            "examples": [
+              "ffff45f6c298edf77f960b20c3468926"
+            ]
+          },
+          "juit_id": {
+            "type": "string",
+            "description": "ID da decisão gerado pela JUIT.",
+            "examples": [
+              "ffff45f6c298edf77f960b20c3468926"
+            ]
+          },
+          "cnj_unique_number": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Número do processo no padrão CNJ.",
+            "examples": [
+              "2037843-28.2024.8.26.0000"
+            ]
+          },
+          "court_code": {
+            "type": "string",
+            "description": "Código do tribunal no qual foi julgado.",
+            "examples": [
+              "TJSP"
+            ]
+          },
+          "degree": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Grau no qual foi julgado.",
+            "examples": [
+              "2ª Instância"
+            ]
+          },
+          "district": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Comarca de origem do recurso.",
+            "examples": [
+              "Avaré"
+            ]
+          },
+          "document_matter_list": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Lista com assuntos baseado na TPU do CNJ.",
+            "examples": [
+              [
+                "cartão de crédito"
+              ]
+            ]
+          },
+          "document_type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Tipo de documento do julgado.",
+            "examples": [
+              "Acórdão"
+            ]
+          },
+          "full_text": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Texto do inteiro teor do julgado.",
+            "examples": [
+              "Texto da íntegra ..."
+            ]
+          },
+          "headnote": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Ementa do julgado.",
+            "examples": [
+              "TUTELA DE URGÊNCIA - Ação de obrigação de fazer c.c. repetição de indébito e indenização por dano moral – Contratação de reserva de margem consignável em cartão de crédito alegadamente mediante vício de consentimento - Indeferimento da tutela de urgência que visava suspender o desconto das parcelas do empréstimo controvertido - Circunstâncias dependentes de aferição contraditória - Requisitos do art. 300 do CPC não preenchidos - Decisão mantida - Agravo improvido."
+            ]
+          },
+          "judgment_body": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Órgão responsável pelo julgamento.",
+            "examples": [
+              "20ª Câmara de Direito Privado"
+            ]
+          },
+          "process_class_name_list": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Classes da ação definidas pelo tribunal ou recurso.",
+            "examples": [
+              [
+                "Agravo de instrumento"
+              ]
+            ]
+          },
+          "process_origin_state": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Estado de origem do julgado.",
+            "examples": [
+              "SP"
+            ]
+          },
+          "judgment_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "description": "Data de julgamento do processo.",
+            "examples": [
+              "2024-05-07T00:00:00Z"
+            ]
+          },
+          "publication_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "description": "Data de publicação do julgado.",
+            "examples": [
+              "2024-05-07T00:00:00Z"
+            ]
+          },
+          "release_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "description": "Data de disponibilização do documento.",
+            "examples": [
+              "2024-05-07T00:00:00Z"
+            ]
+          },
+          "signature_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "description": "Data de assinatura do documento.",
+            "examples": [
+              "2024-05-07T00:00:00Z"
+            ]
+          },
+          "order_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "description": "Tem o valor de uma das datas para facilitar a visualização de data.",
+            "examples": [
+              "2024-05-07T00:00:00Z"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "description": "O título do documento que é exibido na aplicação.",
+            "examples": [
+              "TJSP / Acórdão / 2037843-28.2024.8.26.0000"
+            ]
+          },
+          "trier": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Julgador responsável pelo caso, pode ser um Juiz, Desembargador ou Ministro.",
+            "examples": [
+              "Correia Lima"
+            ]
+          },
+          "justice_type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Indica o tipo de justiça que o processo pertence, podendo ser Juizado Especial e Juízo Comum.",
+            "examples": [
+              "Juízo Comum"
+            ]
+          },
+          "rimor_url": {
+            "type": "string",
+            "examples": [
+              "https://rimor2.juit.io/busca_jurisprudencia/ffff45f6c298edf77f960b20c3468926"
+            ]
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Artifact"
+            },
+            "description": "Lista de artefatos associados ao julgado."
+          }
+        }
+      },
+      "Artifact": {
+        "type": "object",
+        "description": "Artefato associado a uma jurisprudência.",
+        "properties": {
+          "checksum": {
+            "type": "string",
+            "description": "Checksum do arquivo.",
+            "examples": [
+              "d41d8cd98f00b204e9800998ecf8427e"
+            ]
+          },
+          "collected_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de coleta do artefato.",
+            "examples": [
+              "2024-10-01T20:23:17Z"
+            ]
+          },
+          "document_type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Tipo de documento do artefato.",
+            "examples": [
+              "Acórdão"
+            ]
+          },
+          "is_original": {
+            "type": "boolean",
+            "description": "Indica se o artefato é original, ou seja, não foi modicado.",
+            "examples": [
+              true
+            ]
+          },
+          "mime_type": {
+            "type": "string",
+            "description": "Tipo MIME do arquivo.",
+            "examples": [
+              "application/pdf"
+            ]
+          },
+          "filename": {
+            "type": "string",
+            "description": "Nome do arquivo do artefato.",
+            "examples": [
+              "00005325220168130332_20241001.pdf"
+            ]
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "description": "Request status code",
+            "examples": [
+              400
+            ]
+          },
+          "error": {
+            "type": "string",
+            "description": "Request status code description",
+            "examples": [
+              "Bad Request"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "description": "The error message",
+            "examples": [
+              "invalid user"
+            ]
+          },
+          "details": {
+            "type": "object",
+            "properties": {
+              "trace_id": {
+                "type": "string",
+                "description": "Error trace id. The trace ID have this pattern `{1}-{2}-{3}`, where:\n\n1. A letter indicating the error layer:\n    - `D` &rarr; Database\n    - `B` &rarr; Backend\n    - `F` &rarr; Frontend\n2. A letter indicating the log level\n    - `D` &rarr; Debug\n    - `I` &rarr; Info\n    - `W` &rarr; Warning\n    - `E` &rarr; Error\n    - `F` &rarr; Fatal\n3. A Short UUID implemented based on MySQL Funcion [`UUID_SHORT()`](https://dev.mysql.com/doc/refman/8.0/en/miscellaneous-functions.html#function_uuid-short)\n",
+                "pattern": "^[BFD]\\-[DIWEF]\\-\\d.+$",
+                "examples": [
+                  "D-E-11341740730835009643"
+                ]
+              },
+              "short_message": {
+                "description": "The error feedback short message. Usually in portuguese.",
+                "examples": [
+                  "Usuário inválido."
+                ],
+                "type": "string"
+              },
+              "long_message": {
+                "description": "The error feedback complete message. Usually in portuguese.",
+                "examples": [
+                  "Usuário inválido. Apenas usuários cadastrados no sistema podem efetuar esse tipo de operação."
+                ],
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

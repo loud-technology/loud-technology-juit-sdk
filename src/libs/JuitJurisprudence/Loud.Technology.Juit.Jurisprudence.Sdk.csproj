@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>Loud.Technology.Juit.Jurisprudence.Sdk</AssemblyName>
+    <RootNamespace>Loud.Technology.Juit.Jurisprudence.Sdk</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="NuGet">
+    <PackageId>Juit.Jurisprudence</PackageId>
+    <Title>Juit Jurisprudence .NET SDK</Title>
+    <Description>Modern, strongly typed .NET SDK for Juit Jurisprudence search and artifact downloads, generated from OpenAPI with AutoSDK.</Description>
+    <PackageTags>juit;jurisprudence;legal;law;search;api;client;sdk;dotnet;openapi;autosdk</PackageTags>
+    <PackageProjectUrl>https://github.com/loud-technology/loud-technology-juit-sdk</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/loud-technology/loud-technology-juit-sdk.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+</Project>

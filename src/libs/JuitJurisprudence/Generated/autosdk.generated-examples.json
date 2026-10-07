@@ -1,0 +1,26 @@
+{
+  "Examples": [
+    {
+      "Order": 1,
+      "Title": "Baixar artefato de jurisprud\u00EAncia",
+      "Slug": "downloadjurisprudenceartifact",
+      "Description": "Download de um artefato espec\u00EDfico associado a uma jurisprud\u00EAncia.",
+      "Language": "http",
+      "Code": "### Baixar artefato de jurisprud\u00EAncia\n# @name downloadJurisprudenceArtifact\nGET {{host}}/jurisprudence/{{juit_id}}/artifact?owner={{owner}}\u0026filename={{filename}}\nAuthorization: Basic {{credentials}}\nAccept: application/json, application/octet-stream, application/pdf, application/rtf, application/vnd.openxmlformats-officedocument.wordprocessingml.document\n\n## Responses\n# 200\n# Description: Artefato baixado com sucesso.\n# Content-Type: application/octet-stream, application/pdf, application/rtf, application/vnd.openxmlformats-officedocument.wordprocessingml.document\n# 400\n# Description: Bad Request response\n# Content-Type: application/json\n# 403\n# Description: Forbidden response\n# Content-Type: application/json\n# 404\n# Description: Not found response\n# Content-Type: application/json\n# 500\n# Description: Server internal error response\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "downloadJurisprudenceArtifact",
+      "Setup": null
+    },
+    {
+      "Order": 2,
+      "Title": "Buscar jurisprud\u00EAncias",
+      "Slug": "getjurisprudences",
+      "Description": "Esse endpoint realiza a busca na base da JUIT e retorna 10 jurisprud\u00EAncias.",
+      "Language": "http",
+      "Code": "### Buscar jurisprud\u00EAncias\n# @name getJurisprudences\nGET {{host}}/jurisprudence?query={{query}}\u0026owner={{owner}}\u0026search_id={{search_id}}\u0026search_on={{search_on}}\u0026disable_synonym_on={{disable_synonym_on}}\u0026sort_by_field=[\n  \u0022score\u0022,\n  \u0022juit_id\u0022\n]\u0026sort_by_direction=[\n  \u0022desc\u0022,\n  \u0022desc\u0022\n]\u0026next_page_token={{next_page_token}}\u0026order_date={{order_date}}\u0026judgment_date={{judgment_date}}\u0026publication_date={{publication_date}}\u0026release_date={{release_date}}\u0026signature_date={{signature_date}}\u0026court_code={{court_code}}\u0026degree={{degree}}\u0026process_origin_state={{process_origin_state}}\u0026district={{district}}\u0026document_matter_list={{document_matter_list}}\u0026process_class_name_list={{process_class_name_list}}\u0026judgment_body={{judgment_body}}\u0026trier={{trier}}\u0026document_type={{document_type}}\u0026justice_type={{justice_type}}\nAuthorization: Basic {{credentials}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Retrieved jurisprudences.\n# Content-Type: application/json\n# 400\n# Description: Bad Request response\n# Content-Type: application/json\n# 403\n# Description: Forbidden response\n# Content-Type: application/json\n# 422\n# Description: Unprocessably content error response\n# Content-Type: application/json\n# 500\n# Description: Server internal error response\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "getJurisprudences",
+      "Setup": null
+    }
+  ]
+}
